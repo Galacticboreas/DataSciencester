@@ -1,5 +1,5 @@
 from operator import truediv
-from collections import Counter
+from collections import Counter, defaultdict
 
 
 users = [
@@ -80,3 +80,37 @@ interests = [
     (8, "Big Data"), (8, "artificial intelligence"), (9, "Hadoop"),
     (9, "Java"), (9, "MapReduce"), (9, "Big Data")
 ]
+
+# Идендификаторы пользователей по идентификатору темы.
+# Ключи - это интересующие темы,
+# значения - списки идентификаторов пользователей с этой темой
+user_ids_by_interest = defaultdict(list)
+
+for user_id, interest in interests:
+    user_ids_by_interest[interest].append(user_id)
+
+# Идентификаторы тем по идентификатору пользователя.
+# Ключи - это идентификаторы пользователей,
+# значения - списки тем для конктретного идентификатора
+interests_by_user_id = defaultdict(list)
+
+for user_id, interest in interests:
+    interests_by_user_id[user_id].append(interest)
+
+#   Теперь легко найти лицо, у которого больше всего общих интересов
+#   с заданным пользователем. Для этого нужно:
+# - выполнить обход интересующих пользователя тем;
+# - по каждой теме выполнить обход других пользователей, интересую
+#   щихся той же самой темой;
+# - подсчитать, сколько раз встретятся другие пользователи.
+
+# Наиболее общие интересы с пользователем user
+def most_common_interests_with(user):
+    return Counter(
+        interested_user_id
+        for interest in interests_by_user_id[user["id"]]
+        for interested_user_id in user_ids_by_interest[interest]
+        if interested_user_id != user["id"]
+    )
+
+print(most_common_interests_with(users[3]))
