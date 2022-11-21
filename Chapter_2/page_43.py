@@ -1,3 +1,7 @@
+"""
+Функции
+"""
+
 def double(x):
     """
     Когда требуется, здесь размещают
@@ -23,3 +27,11 @@ def full_name(first="некто", last="как-то там"):
 full_name("Джоэл", "Грас")
 full_name("Джоэл")
 full_name(last="Грас")
+
+"""
+Исключения
+"""
+try:
+    print(0 / 0)
+except ZeroDivisionError:
+    print("Нельзя делить на ноль")
