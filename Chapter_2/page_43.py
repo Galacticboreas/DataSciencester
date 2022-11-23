@@ -188,3 +188,4 @@ word_counts = {}
 for word in document:
     previous_count = word_counts.get(word, 0)
     word_counts[word] = previous_count + 1
+
