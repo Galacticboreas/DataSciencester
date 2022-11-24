@@ -2,8 +2,6 @@
 Функции
 """
 
-from tkinter import W
-
 
 def double(x):
     """
@@ -161,31 +159,3 @@ tweet_items = tweet.items()    # Итерируемый объект для ко
 "user" in tweet             # Python'вский способ проверки ключа,
                             # используя быстрое in
 "joelgrus" in tweet_values  # True (медленно, но единственный способ проверки)
-
-# Словарь defultdict
-
-# Частотности слов
-word_counts = {}
-document = {}
-for word in word_counts:
-    word_counts[word] += 1
-else:
-    word_counts[word] = 1
-
-# Кроме того можно воспользоваться приемом под названием "лучше просить
-# прощения, чем разрешения" и перехватывать ошибку при попытке обратиться
-# к отсутствующему ключу:
-word_counts = {}
-for word in document:
-    try:
-        word_counts[word] += 1
-    except KeyError:
-        word_counts[word] = 1
-
-# Третий подход - использовать метод get, который изящно выходит из
-# ситуации с отсутствующими ключами:
-word_counts = {}
-for word in document:
-    previous_count = word_counts.get(word, 0)
-    word_counts[word] = previous_count + 1
-
