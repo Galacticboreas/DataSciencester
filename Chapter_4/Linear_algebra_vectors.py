@@ -28,9 +28,7 @@
 # в виде списков чисел. Список из трех чисел соответствует вектору
 # в трехмерном пространстве, и наоборот:
 
-from difflib import restore
 from typing import List
-from unittest import result
 
 Vector = List[float]
 
@@ -103,4 +101,3 @@ def scalar_multiply(c: float, v: Vector) -> Vector:
     return [c * v_i for v_i in v]
 
 assert scalar_multiply(2, [1, 2, 3]) == [2, 4, 6]
-print("Hello, World!")
