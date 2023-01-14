@@ -11,8 +11,6 @@
 # в файл при помощи метода savefig или вывести на экран методом show.
 
 # Например, достаточно легко создать простой график:
-from inspect import modulesbyfile
-from turtle import color
 from matplotlib import pyplot as plt
 
 years = [1950, 1960, 1970, 1980, 1990, 2000, 2010]               # Годы
