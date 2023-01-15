@@ -6,7 +6,6 @@
 # деленная на их количество:
 
 # Среднее значение
-from re import X
 from typing import Counter, List
 from matplotlib import pyplot as plt
 
