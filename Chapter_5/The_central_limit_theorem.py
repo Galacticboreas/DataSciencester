@@ -3,9 +3,9 @@
 # --------------------------------
 
 import math
-from matplotlib import pyplot as plt
-
 import random
+
+from matplotlib import pyplot as plt
 
 
 # Одна из причин распространенности нормального распределения
@@ -35,7 +35,7 @@ def normal_cdf(x: float, mu: float = 0, sigma: float = 1) -> float:
 from collections import Counter
 
 def binomial_histogram(p: float, n: int, num_points: int) -> None:
-    """Подбирает точки из binomial(n, p) и строит из гистограмму"""
+    """Подбирает точки из binomial(n, p) и строит их гистограмму"""
     data = [binomial(n, p) for _ in range(num_points)]
 
     # Использовать стобчатый график
