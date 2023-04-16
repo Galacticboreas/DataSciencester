@@ -50,7 +50,7 @@ simulations) to explore this concept.
 MONTHS = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
           'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
 
-while True:   # Запрашиваем, пока пользователь не введет опустимое значение.
+while True:   # Запрашиваем, пока пользователь не введет допустимое значение.
     print('How many birthdays shall I generate? (Max 100)')
     response = input('> ')
     if response.isdecimal() and (0 < int(response) <= 100):
