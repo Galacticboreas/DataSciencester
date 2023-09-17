@@ -1,7 +1,3 @@
-
-from xml.etree.ElementTree import PI
-
-
 class Point:
     color = "red"
     circle = 2
