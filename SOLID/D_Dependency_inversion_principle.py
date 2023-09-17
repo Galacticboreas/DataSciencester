@@ -116,3 +116,91 @@ music_player_state = press_switch(music_player_state,
     display_state
     )
 
+# 3) An example of a codebase extension.
+
+# To add the functionality of adjusting the volume 
+# of the player, we will make the code more reliable, 
+# and without changing what is already available.
+
+# Here is the code added to the current player script:
+
+from typing import Callable, Tuple
+
+# Adding the functionality of changing the volume
+def change_volume(volume: int, increment_counter: int) -> int:
+    new_volume = volume + increment_counter
+
+    if new_volume < 0:
+        new_volume = 0
+    elif new_volume > 100:
+        new_volume = 100
+    print(f'New volume: {new_volume} ')
+
+    return new_volume
+
+# Adding the functionality of using the player
+def use_music_player(state: bool,
+                     volume: int,
+                     operations: Callable[ [bool, int], Tuple[bool, int]]) -> Tuple[bool, int]:
+    new_state, new_volume = operations(state, volume)
+
+    return new_state, new_volume
+
+# Setting the initial constants
+current_state = False
+current_volume = 0
+
+# Increasing the volume of the player
+def increase_operations(state: bool, volume: int) -> Tuple[bool, int]:
+    new_state = toggle_state(state)
+    display_state(new_state)
+    new_volume = change_volume(volume, 35)
+
+    return new_state, new_volume
+
+current_state, current_volume = use_music_player(
+    current_state, 
+    current_volume, 
+    increase_operations
+    )
+
+# Turn down the volume of the player
+def decrease_operations(state: bool, volume: int) -> Tuple[bool, int]:
+    new_state = toggle_state(state)
+    display_state(new_state)
+    new_volume = change_volume(volume, -20)
+
+    return new_state, new_volume
+
+# Using the player
+current_state, current_volume = use_music_player(
+    current_state,
+    current_volume,
+    decrease_operations
+)
+
+# There's a lot of code, but it's simple:
+
+# In change_volume, the volume changes from 0 to 100 depending
+#  on the specified increment, then a new volume value is output. 
+# The default volume value is 0 if a negative new_volume value 
+# is returned. The same default value is 100 if a value greater 
+# than 100 is returned.
+# use_music_player is a higher—order function for using the player.
+#  It also accepts three arguments, where the values of the current
+#  state and volume are occupied by the first two parameters, 
+# and the operations operations — to use the values of the current
+#  state and volume to create the values of the new state and volume
+#  — are passed to the third.
+# In the increase_operations, the current volume increases, the 
+# state of the player switches.
+# In decrease_operations, the current volume decreases, the player
+#  state switches.
+
+# Implementing the use_music_player function with 
+# the corresponding parameters, we get this output:
+
+# ON: Music player switched on.
+# New volume: 35
+# OFF: Music player switched off.
+# New volume: 15
