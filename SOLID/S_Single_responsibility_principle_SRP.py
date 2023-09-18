@@ -5,8 +5,6 @@
 
 # 1) Violation of the principle.
 
-from hashlib import blake2b
-from itertools import accumulate
 from typing import Tuple
 
 def process_customer_money(account_number: int,

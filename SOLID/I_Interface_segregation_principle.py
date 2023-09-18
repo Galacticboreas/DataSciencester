@@ -13,7 +13,6 @@ global variables).
 
 # 1) Violation of the principle
 
-from ast import Call
 from typing import Callable
 
 # Creating a higher-order function for interacting with animals

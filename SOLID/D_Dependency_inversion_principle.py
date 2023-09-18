@@ -71,8 +71,6 @@ press_music_player_switch()
 
 # 2) Compliance with the principle
 
-from ast import Call
-from multiprocessing.reduction import steal_handle
 from typing import Callable
 
 # Switching the state
