@@ -1,6 +1,3 @@
-from unicodedata import name
-
-
 class Person:
     def __init__(self, name, old):
         self.__name = name
@@ -34,4 +31,3 @@ print(p.__dict__)
 p.old = 10
 
 print(p.__dict__)
-
