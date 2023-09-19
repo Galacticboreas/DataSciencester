@@ -80,7 +80,7 @@ class Person:
             raise TypeError("The passport must be a string")
 
         s = ps.split()
-        if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
+        if len(s) != 2 or len(s[0]) != 4 or  len(s[1]) != 6:
             raise TypeError("Invalid passport format")
         
         for p in s:
