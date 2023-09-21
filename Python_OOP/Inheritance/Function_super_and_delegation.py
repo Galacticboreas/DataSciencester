@@ -28,9 +28,6 @@
 # and when redefining (usually methods), changing 
 # the behavior of an already existing functional.
 
-from textwrap import fill
-
-
 class Geom:
     name = 'Geom'
 
@@ -56,4 +53,7 @@ class Rect(Geom):
 
 l = Line(0, 0, 10, 20)
 r = Rect(1, 2, 3, 4)
+# Geom initializer for <class '__main__.Line'>
+# Geom initializer for <class '__main__.Rect'>
+# Rect initializer
 
